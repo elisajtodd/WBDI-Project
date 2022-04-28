@@ -36,6 +36,11 @@
 
 
     <ObjectProperty rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#hasOccupation">
+        <equivalentProperty>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#isLocatedIn"/>
+            </rdf:Description>
+        </equivalentProperty>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
     </ObjectProperty>
     
@@ -46,6 +51,7 @@
 
     <ObjectProperty rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#isLocatedIn">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <inverseOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#hasOccupation"/>
     </ObjectProperty>
     
 
@@ -180,24 +186,15 @@
         <equivalentClass>
             <Class>
                 <intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#dbo:Place"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#City"/>
                     <Restriction>
                         <onProperty rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#hasOccupation"/>
-                        <someValuesFrom rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Software_Developers"/>
+                        <someValuesFrom rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#software_developers"/>
                     </Restriction>
                 </intersectionOf>
             </Class>
         </equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#dbo:Place"/>
-    </Class>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#Software_Developers -->
-
-
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#Software_Developers">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#City"/>
     </Class>
     
 
@@ -224,6 +221,15 @@
 
 
     <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#actuaries">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#administrative_services_managers -->
+
+
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#administrative_services_managers">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -445,19 +451,19 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#chiropractors -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#child__family__and_school_social_workers -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#chiropractors">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#child__family__and_school_social_workers">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#civil_engineering_technologists_and_technicians -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#chiropractors -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#civil_engineering_technologists_and_technicians">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#chiropractors">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -530,15 +536,6 @@
 
 
     <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_and_information_systems_managers">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-    </Class>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_and_mathematical_occupations -->
-
-
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_and_mathematical_occupations">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -643,10 +640,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#dental_hygienists -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#dental_assistants -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#dental_hygienists">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#dental_assistants">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -661,10 +658,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#dentists__general -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#diagnostic_medical_sonographers -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#dentists__general">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#diagnostic_medical_sonographers">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -706,19 +703,19 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#educational_instruction_and_library_occupations -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#educational__guidance__and_career_counselors_and_advisors -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#educational_instruction_and_library_occupations">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#educational__guidance__and_career_counselors_and_advisors">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#educational_instruction_and_library_workers__all_other -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#educational_instruction_and_library_occupations -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#educational_instruction_and_library_workers__all_other">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#educational_instruction_and_library_occupations">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -755,15 +752,6 @@
 
 
     <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#elementary_school_teachers__except_special_education">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-    </Class>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#emergency_medical_technicians -->
-
-
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#emergency_medical_technicians">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -832,10 +820,37 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_and_investment_analysts -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_managers -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_and_investment_analysts">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_managers">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_specialists__all_other -->
+
+
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_specialists__all_other">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#firefighters -->
+
+
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#firefighters">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#first_line_supervisors_of_firefighting_and_prevention_workers -->
+
+
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#first_line_supervisors_of_firefighting_and_prevention_workers">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -886,15 +901,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#health_specialties_teachers__postsecondary -->
-
-
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#health_specialties_teachers__postsecondary">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-    </Class>
-    
-
-
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#health_technologists_and_technicians__all_other -->
 
 
@@ -922,19 +928,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#healthcare_social_workers -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#home_health_and_personal_care_aides -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#healthcare_social_workers">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-    </Class>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#healthcare_support_occupations -->
-
-
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#healthcare_support_occupations">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#home_health_and_personal_care_aides">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -1021,19 +1018,19 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#legal_occupations -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#librarians_and_media_collections_specialists -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#legal_occupations">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#librarians_and_media_collections_specialists">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#librarians_and_media_collections_specialists -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#library_technicians -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#librarians_and_media_collections_specialists">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#library_technicians">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -1093,10 +1090,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#management_analysts -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#management_occupations -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#management_analysts">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#management_occupations">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -1183,6 +1180,24 @@
     
 
 
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_assistants -->
+
+
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_assistants">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_equipment_preparers -->
+
+
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_equipment_preparers">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+    </Class>
+    
+
+
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_records_specialists -->
 
 
@@ -1214,15 +1229,6 @@
 
 
     <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#mental_health_and_substance_abuse_social_workers">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-    </Class>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#merchandise_displayers_and_window_trimmers -->
-
-
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#merchandise_displayers_and_window_trimmers">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -1300,6 +1306,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#nursing_assistants -->
+
+
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#nursing_assistants">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+    </Class>
+    
+
+
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#occupational_health_and_safety_specialists -->
 
 
@@ -1318,6 +1333,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#occupational_therapy_assistants -->
+
+
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#occupational_therapy_assistants">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+    </Class>
+    
+
+
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#operations_research_analysts -->
 
 
@@ -1331,15 +1355,6 @@
 
 
     <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#ophthalmic_medical_technicians">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-    </Class>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#opticians__dispensing -->
-
-
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#opticians__dispensing">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -1417,10 +1432,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#personal_financial_advisors -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#paramedics -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#personal_financial_advisors">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#paramedics">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -1453,6 +1468,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#phlebotomists -->
+
+
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#phlebotomists">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+    </Class>
+    
+
+
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#physical_scientists__all_other -->
 
 
@@ -1471,10 +1495,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#physical_therapist_assistants -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#physical_therapist_aides -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#physical_therapist_assistants">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#physical_therapist_aides">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -1516,10 +1540,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#preschool_teachers__except_special_education -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#probation_officers_and_correctional_treatment_specialists -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#preschool_teachers__except_special_education">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#probation_officers_and_correctional_treatment_specialists">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -1543,19 +1567,28 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#property__real_estate__and_community_association_managers -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#property_appraisers_and_assessors -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#property__real_estate__and_community_association_managers">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#property_appraisers_and_assessors">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#property_appraisers_and_assessors -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#protective_service_occupations -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#property_appraisers_and_assessors">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#protective_service_occupations">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#public_relations_specialists -->
+
+
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#public_relations_specialists">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -1642,19 +1675,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#self_enrichment_teachers -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#social_and_community_service_managers -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#self_enrichment_teachers">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-    </Class>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#social_and_human_service_assistants -->
-
-
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#social_and_human_service_assistants">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#social_and_community_service_managers">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -1705,6 +1729,24 @@
     
 
 
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#special_education_teachers__all_other -->
+
+
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#special_education_teachers__all_other">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#special_education_teachers__kindergarten_and_elementary_school -->
+
+
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#special_education_teachers__kindergarten_and_elementary_school">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+    </Class>
+    
+
+
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#special_education_teachers__secondary_school -->
 
 
@@ -1732,10 +1774,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#substitute_teachers__short_term -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#substance_abuse__behavioral_disorder__and_mental_health_counselors -->
 
 
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#substitute_teachers__short_term">
+    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#substance_abuse__behavioral_disorder__and_mental_health_counselors">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -1781,15 +1823,6 @@
 
 
     <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#surveyors__cartographers__and_photogrammetrists">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-    </Class>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#teaching_assistants__except_postsecondary -->
-
-
-    <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#teaching_assistants__except_postsecondary">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
     </Class>
     
@@ -1879,13 +1912,103 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__ -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene -->
 
 
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__">
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#City"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#SoftwareDeveloperCities"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#dbo:Place"/>
+        <sameAs rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#accountants_and_auditors_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#administrative_services_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#architectural_and_civil_drafters_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#architecture_and_engineering_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#arts__design__entertainment__sports__and_media_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#business_and_financial_operations_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#business_operations_specialists__all_other_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#buyers_and_purchasing_agents_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#career_technical_education_teachers__postsecondary_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#child__family__and_school_social_workers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#civil_engineers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#clinical_and_counseling_psychologists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#clinical_laboratory_technologists_and_technicians_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#community_and_social_service_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#compliance_officers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_and_information_systems_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_network_architects_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_programmers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_user_support_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#construction_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#dental_assistants_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#diagnostic_medical_sonographers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#dietitians_and_nutritionists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#education_administrators__postsecondary_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#educational__guidance__and_career_counselors_and_advisors_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#educational_instruction_and_library_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#electrical_engineers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#facilities_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_specialists__all_other_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#firefighters_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#first_line_supervisors_of_firefighting_and_prevention_workers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#general_and_operations_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#graphic_designers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#health_education_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#health_technologists_and_technicians__all_other_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#healthcare_practitioners_and_technical_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#home_health_and_personal_care_aides_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#human_resources_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#human_resources_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#industrial_production_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#instructional_coordinators_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#lawyers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#librarians_and_media_collections_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#library_technicians_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#licensed_practical_and_licensed_vocational_nurses_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#life__physical__and_social_science_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#loan_officers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#management_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#managers__all_other_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#market_research_analysts_and_marketing_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#marketing_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#mechanical_engineers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_assistants_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_equipment_preparers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_records_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#meeting__convention__and_event_planners_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#mental_health_and_substance_abuse_social_workers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#network_and_computer_systems_administrators_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#nurse_practitioners_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#nursing_assistants_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#occupational_health_and_safety_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#occupational_therapy_assistants_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#ophthalmic_medical_technicians_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#paralegals_and_legal_assistants_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#paramedics_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#pharmacy_technicians_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#phlebotomists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#physical_therapist_aides_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#physical_therapists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#physician_assistants_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#probation_officers_and_correctional_treatment_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#producers_and_directors_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#project_management_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#property_appraisers_and_assessors_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#protective_service_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#public_relations_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#radiologic_technologists_and_technicians_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#sales_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#school_psychologists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#social_and_community_service_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#software_developers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#speech_language_pathologists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#substance_abuse__behavioral_disorder__and_mental_health_counselors_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#surgical_technologists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#training_and_development_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#transportation__storage__and_distribution_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#veterinarians_Abilene__TX"/>
         <jobgps:isPartOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#TX"/>
     </Thing>
     
@@ -1894,8 +2017,107 @@
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX -->
 
 
+    <NamedIndividual rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX -->
+
+
     <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#City"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#SoftwareDeveloperCities"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#dbo:Place"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#accountants_and_auditors_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#administrative_services_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#architectural_and_civil_drafters_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#architecture_and_engineering_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#arts__design__entertainment__sports__and_media_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#business_and_financial_operations_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#business_operations_specialists__all_other_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#buyers_and_purchasing_agents_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#career_technical_education_teachers__postsecondary_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#child__family__and_school_social_workers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#civil_engineers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#clinical_and_counseling_psychologists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#clinical_laboratory_technologists_and_technicians_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#community_and_social_service_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#compliance_officers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_and_information_systems_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_network_architects_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_programmers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_user_support_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#construction_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#dental_assistants_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#diagnostic_medical_sonographers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#dietitians_and_nutritionists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#education_administrators__postsecondary_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#educational__guidance__and_career_counselors_and_advisors_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#educational_instruction_and_library_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#electrical_engineers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#facilities_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_specialists__all_other_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#firefighters_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#first_line_supervisors_of_firefighting_and_prevention_workers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#general_and_operations_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#graphic_designers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#health_education_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#health_technologists_and_technicians__all_other_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#healthcare_practitioners_and_technical_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#home_health_and_personal_care_aides_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#human_resources_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#human_resources_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#industrial_production_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#instructional_coordinators_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#lawyers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#librarians_and_media_collections_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#library_technicians_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#licensed_practical_and_licensed_vocational_nurses_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#life__physical__and_social_science_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#loan_officers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#management_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#managers__all_other_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#market_research_analysts_and_marketing_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#marketing_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#mechanical_engineers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_assistants_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_equipment_preparers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_records_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#meeting__convention__and_event_planners_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#mental_health_and_substance_abuse_social_workers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#network_and_computer_systems_administrators_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#nurse_practitioners_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#nursing_assistants_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#occupational_health_and_safety_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#occupational_therapy_assistants_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#ophthalmic_medical_technicians_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#paralegals_and_legal_assistants_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#paramedics_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#pharmacy_technicians_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#phlebotomists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#physical_therapist_aides_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#physical_therapists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#physician_assistants_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#probation_officers_and_correctional_treatment_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#producers_and_directors_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#project_management_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#property_appraisers_and_assessors_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#protective_service_occupations_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#public_relations_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#radiologic_technologists_and_technicians_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#sales_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#school_psychologists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#social_and_community_service_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#software_developers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#speech_language_pathologists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#substance_abuse__behavioral_disorder__and_mental_health_counselors_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#surgical_technologists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#training_and_development_specialists_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#transportation__storage__and_distribution_managers_Abilene__TX"/>
+        <jobgps:hasOccupation rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#veterinarians_Abilene__TX"/>
+        <jobgps:isPartOf rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#TX"/>
     </Thing>
     
 
@@ -1907,7 +2129,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#State"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#dbo:Place"/>
-        <jobgps:hasCity rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__"/>
+        <jobgps:hasCity rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
+        <jobgps:hasCity rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
     </Thing>
     
 
@@ -1919,6 +2142,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#accountants_and_auditors"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">74770.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30.11</jobgps:hasMeanHourlyWage>
@@ -1941,6 +2165,24 @@
         <jobgps:hasTotalMenEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20645</jobgps:hasTotalMenEmployees>
         <jobgps:hasTotalWomenEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13650</jobgps:hasTotalWomenEmployees>
         <jobgps:hasWomenEmployeesPercentage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">39.8</jobgps:hasWomenEmployeesPercentage>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#administrative_services_managers_Abilene__TX -->
+
+
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#administrative_services_managers_Abilene__TX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#administrative_services_managers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">95790.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">39.67</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">82510.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46.05</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -2048,6 +2290,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#architectural_and_civil_drafters"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">48760.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23.3</jobgps:hasMeanHourlyWage>
@@ -2081,6 +2324,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#architecture_and_engineering_occupations"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">73790.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29.35</jobgps:hasMeanHourlyWage>
@@ -2114,6 +2358,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#arts__design__entertainment__sports__and_media_occupations"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">43000.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17.94</jobgps:hasMeanHourlyWage>
@@ -2227,6 +2472,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#business_and_financial_operations_occupations"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">64790.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28.82</jobgps:hasMeanHourlyWage>
@@ -2244,6 +2490,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#business_operations_specialists__all_other"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60790.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28.79</jobgps:hasMeanHourlyWage>
@@ -2261,6 +2508,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#buyers_and_purchasing_agents"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">55220.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">25.44</jobgps:hasMeanHourlyWage>
@@ -2278,6 +2526,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#career_technical_education_teachers__postsecondary"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">54920.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28.67</jobgps:hasMeanHourlyWage>
@@ -2348,6 +2597,24 @@
     
 
 
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#child__family__and_school_social_workers_Abilene__TX -->
+
+
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#child__family__and_school_social_workers_Abilene__TX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#child__family__and_school_social_workers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">49120.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.56</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46920.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23.62</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">210</jobgps:hasTotalEmployees>
+    </Thing>
+    
+
+
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#chiropractors -->
 
 
@@ -2364,23 +2631,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#civil_engineering_technologists_and_technicians_Abilene__TX -->
-
-
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#civil_engineering_technologists_and_technicians_Abilene__TX">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#civil_engineering_technologists_and_technicians"/>
-        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46450.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.16</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">41940.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.33</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</jobgps:hasTotalEmployees>
-    </Thing>
-    
-
-
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#civil_engineers -->
 
 
@@ -2393,6 +2643,24 @@
         <jobgps:hasTotalMenEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">358160</jobgps:hasTotalMenEmployees>
         <jobgps:hasTotalWomenEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67416</jobgps:hasTotalWomenEmployees>
         <jobgps:hasWomenEmployeesPercentage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.8</jobgps:hasWomenEmployeesPercentage>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#civil_engineers_Abilene__TX -->
+
+
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#civil_engineers_Abilene__TX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#civil_engineers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">72350.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29.35</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">61040.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34.79</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -2420,6 +2688,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#clinical_and_counseling_psychologists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">63910.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29.71</jobgps:hasMeanHourlyWage>
@@ -2437,6 +2706,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#clinical_laboratory_technologists_and_technicians"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">43390.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17.76</jobgps:hasMeanHourlyWage>
@@ -2466,6 +2736,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#community_and_social_service_occupations"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46010.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.53</jobgps:hasMeanHourlyWage>
@@ -2483,6 +2754,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#compliance_officers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">62200.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">27.55</jobgps:hasMeanHourlyWage>
@@ -2525,19 +2797,20 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_and_mathematical_occupations_Abilene__TX -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_and_information_systems_managers_Abilene__TX -->
 
 
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_and_mathematical_occupations_Abilene__TX">
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_and_information_systems_managers_Abilene__TX">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_and_mathematical_occupations"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_and_information_systems_managers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">67670.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28.9</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60110.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">32.53</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">990</jobgps:hasTotalEmployees>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">128800.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">57.51</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">119620.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">61.92</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -2581,6 +2854,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_network_architects"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">116360.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">61.63</jobgps:hasMeanHourlyWage>
@@ -2623,23 +2897,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_occupations__all_other_Abilene__TX -->
-
-
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_occupations__all_other_Abilene__TX">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_occupations__all_other"/>
-        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">59580.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.96</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">47750.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28.65</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</jobgps:hasTotalEmployees>
-    </Thing>
-    
-
-
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_programmers -->
 
 
@@ -2652,6 +2909,24 @@
         <jobgps:hasTotalMenEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">265291</jobgps:hasTotalMenEmployees>
         <jobgps:hasTotalWomenEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">71725</jobgps:hasTotalWomenEmployees>
         <jobgps:hasWomenEmployeesPercentage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.3</jobgps:hasWomenEmployeesPercentage>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_programmers_Abilene__TX -->
+
+
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_programmers_Abilene__TX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_programmers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">79380.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34.51</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">71780.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">38.16</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -2695,6 +2970,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#computer_user_support_specialists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">47340.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.76</jobgps:hasMeanHourlyWage>
@@ -2728,6 +3004,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#construction_managers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">79810.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">36.55</jobgps:hasMeanHourlyWage>
@@ -2754,19 +3031,20 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#dental_hygienists_Abilene__TX -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#dental_assistants_Abilene__TX -->
 
 
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#dental_hygienists_Abilene__TX">
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#dental_assistants_Abilene__TX">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#dental_hygienists"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#dental_assistants"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">72910.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">37.11</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">77190.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">35.05</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</jobgps:hasTotalEmployees>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">33940.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17.59</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">36580.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.32</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">190</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -2787,19 +3065,20 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#dentists__general_Abilene__TX -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#diagnostic_medical_sonographers_Abilene__TX -->
 
 
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#dentists__general_Abilene__TX">
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#diagnostic_medical_sonographers_Abilene__TX">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#dentists__general"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#diagnostic_medical_sonographers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150920.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">68.03</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">141490.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">72.56</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</jobgps:hasTotalEmployees>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">72820.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">37.03</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">77030.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">35.01</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -2827,6 +3106,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#dietitians_and_nutritionists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">59940.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28.87</jobgps:hasMeanHourlyWage>
@@ -2872,12 +3152,31 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#education_administrators__postsecondary"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">90130.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">35.73</jobgps:hasMeanHourlyWage>
         <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">74320.0</jobgps:hasMedianAnnualWage>
         <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">43.33</jobgps:hasMedianHourlyWage>
         <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</jobgps:hasTotalEmployees>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#educational__guidance__and_career_counselors_and_advisors_Abilene__TX -->
+
+
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#educational__guidance__and_career_counselors_and_advisors_Abilene__TX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#educational__guidance__and_career_counselors_and_advisors"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50350.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">24.03</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">49980.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">24.21</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">270</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -2889,29 +3188,13 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#educational_instruction_and_library_occupations"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50480.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23.06</jobgps:hasMeanHourlyWage>
         <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">47960.0</jobgps:hasMedianAnnualWage>
         <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">24.27</jobgps:hasMedianHourlyWage>
         <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4820</jobgps:hasTotalEmployees>
-    </Thing>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#educational_instruction_and_library_workers__all_other_Abilene__TX -->
-
-
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#educational_instruction_and_library_workers__all_other_Abilene__TX">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#educational_instruction_and_library_workers__all_other"/>
-        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40970.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19.35</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40240.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19.7</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -2955,6 +3238,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#electrical_engineers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">99130.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">47.94</jobgps:hasMeanHourlyWage>
@@ -2973,23 +3257,6 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#elementary_school_teachers__except_special_education"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50810.0</jobgps:hasMeanAnnualWage>
-    </Thing>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#emergency_medical_technicians_Abilene__TX -->
-
-
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#emergency_medical_technicians_Abilene__TX">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#emergency_medical_technicians"/>
-        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">26590.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.99</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22850.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.78</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -3097,6 +3364,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#facilities_managers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">82920.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">38.39</jobgps:hasMeanHourlyWage>
@@ -3107,19 +3375,74 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_and_investment_analysts_Abilene__TX -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_managers_Abilene__TX -->
 
 
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_and_investment_analysts_Abilene__TX">
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_managers_Abilene__TX">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_and_investment_analysts"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_managers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">74630.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34.26</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">71270.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">35.88</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</jobgps:hasTotalEmployees>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">130350.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">53.46</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">111190.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">62.67</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">170</jobgps:hasTotalEmployees>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_specialists__all_other_Abilene__TX -->
+
+
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_specialists__all_other_Abilene__TX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#financial_specialists__all_other"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">53300.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.82</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">47470.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">25.63</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</jobgps:hasTotalEmployees>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#firefighters_Abilene__TX -->
+
+
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#firefighters_Abilene__TX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#firefighters"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">43960.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.4</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46590.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.13</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">220</jobgps:hasTotalEmployees>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#first_line_supervisors_of_firefighting_and_prevention_workers_Abilene__TX -->
+
+
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#first_line_supervisors_of_firefighting_and_prevention_workers_Abilene__TX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#first_line_supervisors_of_firefighting_and_prevention_workers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">64060.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29.09</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60500.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30.8</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">80</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -3131,6 +3454,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#general_and_operations_managers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">84420.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">35.71</jobgps:hasMeanHourlyWage>
@@ -3164,6 +3488,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#graphic_designers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">38940.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17.97</jobgps:hasMeanHourlyWage>
@@ -3181,6 +3506,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#health_education_specialists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">47010.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17.74</jobgps:hasMeanHourlyWage>
@@ -3202,18 +3528,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#health_specialties_teachers__postsecondary_Abilene__TX -->
-
-
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#health_specialties_teachers__postsecondary_Abilene__TX">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#health_specialties_teachers__postsecondary"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">93720.0</jobgps:hasMeanAnnualWage>
-    </Thing>
-    
-
-
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#health_technologists_and_technicians__all_other_Abilene__TX -->
 
 
@@ -3221,6 +3535,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#health_technologists_and_technicians__all_other"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">41360.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17.67</jobgps:hasMeanHourlyWage>
@@ -3254,6 +3569,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#healthcare_practitioners_and_technical_occupations"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75620.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29.11</jobgps:hasMeanHourlyWage>
@@ -3264,36 +3580,20 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#healthcare_social_workers_Abilene__TX -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#home_health_and_personal_care_aides_Abilene__TX -->
 
 
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#healthcare_social_workers_Abilene__TX">
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#home_health_and_personal_care_aides_Abilene__TX">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#healthcare_social_workers"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#home_health_and_personal_care_aides"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">59590.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28.9</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60110.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28.65</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</jobgps:hasTotalEmployees>
-    </Thing>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#healthcare_support_occupations_Abilene__TX -->
-
-
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#healthcare_support_occupations_Abilene__TX">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#healthcare_support_occupations"/>
-        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">26860.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11.43</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23780.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.91</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3680</jobgps:hasTotalEmployees>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21350.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.52</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21890.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.26</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1730</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -3305,6 +3605,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#human_resources_managers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">89280.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">41.56</jobgps:hasMeanHourlyWage>
@@ -3322,6 +3623,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#human_resources_specialists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">54820.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23.57</jobgps:hasMeanHourlyWage>
@@ -3355,6 +3657,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#industrial_production_managers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">99620.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46.59</jobgps:hasMeanHourlyWage>
@@ -3388,6 +3691,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#instructional_coordinators"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">65020.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29.28</jobgps:hasMeanHourlyWage>
@@ -3433,29 +3737,13 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#lawyers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">116590.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">49.53</jobgps:hasMeanHourlyWage>
         <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">103010.0</jobgps:hasMedianAnnualWage>
         <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">56.05</jobgps:hasMedianHourlyWage>
         <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</jobgps:hasTotalEmployees>
-    </Thing>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#legal_occupations_Abilene__TX -->
-
-
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#legal_occupations_Abilene__TX">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#legal_occupations"/>
-        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">73270.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">26.95</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">56050.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">35.23</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">230</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -3467,12 +3755,31 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#librarians_and_media_collections_specialists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">52160.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23.06</jobgps:hasMeanHourlyWage>
         <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">47960.0</jobgps:hasMedianAnnualWage>
         <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">25.08</jobgps:hasMedianHourlyWage>
         <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</jobgps:hasTotalEmployees>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#library_technicians_Abilene__TX -->
+
+
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#library_technicians_Abilene__TX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#library_technicians"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">31970.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14.01</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29130.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.37</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -3484,6 +3791,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#licensed_practical_and_licensed_vocational_nurses"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">45770.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.31</jobgps:hasMeanHourlyWage>
@@ -3501,6 +3809,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#life__physical__and_social_science_occupations"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">62020.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28.32</jobgps:hasMeanHourlyWage>
@@ -3566,6 +3875,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#loan_officers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">66630.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">27.86</jobgps:hasMeanHourlyWage>
@@ -3576,19 +3886,20 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#management_analysts_Abilene__TX -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#management_occupations_Abilene__TX -->
 
 
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#management_analysts_Abilene__TX">
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#management_occupations_Abilene__TX">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#management_analysts"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#management_occupations"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75500.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">35.1</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">73000.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">36.3</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</jobgps:hasTotalEmployees>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">89520.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">37.06</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">77080.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">43.04</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3930</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -3600,6 +3911,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#managers__all_other"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">108180.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">47.84</jobgps:hasMeanHourlyWage>
@@ -3633,6 +3945,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#market_research_analysts_and_marketing_specialists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51550.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.97</jobgps:hasMeanHourlyWage>
@@ -3650,6 +3963,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#marketing_managers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">121300.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">53.41</jobgps:hasMeanHourlyWage>
@@ -3731,6 +4045,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#mechanical_engineers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">93310.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46.22</jobgps:hasMeanHourlyWage>
@@ -3757,19 +4072,38 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_and_health_services_managers_Abilene__TX -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_assistants_Abilene__TX -->
 
 
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_and_health_services_managers_Abilene__TX">
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_assistants_Abilene__TX">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_and_health_services_managers"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_assistants"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">98870.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46.24</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">96170.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">47.54</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">260</jobgps:hasTotalEmployees>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">31990.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14.47</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30100.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.38</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">510</jobgps:hasTotalEmployees>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_equipment_preparers_Abilene__TX -->
+
+
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_equipment_preparers_Abilene__TX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_equipment_preparers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">32100.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14.0</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29130.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.43</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -3781,6 +4115,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#medical_records_specialists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">39980.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19.21</jobgps:hasMeanHourlyWage>
@@ -3814,6 +4149,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#meeting__convention__and_event_planners"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">41830.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">18.22</jobgps:hasMeanHourlyWage>
@@ -3831,28 +4167,12 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#mental_health_and_substance_abuse_social_workers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">41150.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">18.36</jobgps:hasMeanHourlyWage>
         <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">38200.0</jobgps:hasMedianAnnualWage>
         <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19.79</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</jobgps:hasTotalEmployees>
-    </Thing>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#merchandise_displayers_and_window_trimmers_Abilene__TX -->
-
-
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#merchandise_displayers_and_window_trimmers_Abilene__TX">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#merchandise_displayers_and_window_trimmers"/>
-        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34870.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.71</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34760.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.76</jobgps:hasMedianHourlyWage>
         <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</jobgps:hasTotalEmployees>
     </Thing>
     
@@ -3941,6 +4261,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#network_and_computer_systems_administrators"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">69780.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">32.35</jobgps:hasMeanHourlyWage>
@@ -3990,12 +4311,31 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#nurse_practitioners"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">112670.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">49.07</jobgps:hasMeanHourlyWage>
         <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">102060.0</jobgps:hasMedianAnnualWage>
         <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">54.17</jobgps:hasMedianHourlyWage>
         <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">180</jobgps:hasTotalEmployees>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#nursing_assistants_Abilene__TX -->
+
+
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#nursing_assistants_Abilene__TX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#nursing_assistants"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28070.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.86</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28820.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.49</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">750</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -4007,6 +4347,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#occupational_health_and_safety_specialists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60670.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29.09</jobgps:hasMeanHourlyWage>
@@ -4033,19 +4374,20 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#occupational_therapists_Abilene__TX -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#occupational_therapy_assistants_Abilene__TX -->
 
 
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#occupational_therapists_Abilene__TX">
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#occupational_therapy_assistants_Abilene__TX">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#occupational_therapists"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#occupational_therapy_assistants"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">97530.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46.81</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">97360.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46.89</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</jobgps:hasTotalEmployees>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">69740.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34.29</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">71320.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">33.53</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -4073,29 +4415,13 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#ophthalmic_medical_technicians"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30830.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14.26</jobgps:hasMeanHourlyWage>
         <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29650.0</jobgps:hasMedianAnnualWage>
         <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14.82</jobgps:hasMedianHourlyWage>
         <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</jobgps:hasTotalEmployees>
-    </Thing>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#opticians__dispensing_Abilene__TX -->
-
-
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#opticians__dispensing_Abilene__TX">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#opticians__dispensing"/>
-        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">31680.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14.08</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29280.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.23</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -4219,6 +4545,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#paralegals_and_legal_assistants"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">42630.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.26</jobgps:hasMeanHourlyWage>
@@ -4229,19 +4556,20 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#personal_financial_advisors_Abilene__TX -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#paramedics_Abilene__TX -->
 
 
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#personal_financial_advisors_Abilene__TX">
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#paramedics_Abilene__TX">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#personal_financial_advisors"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#paramedics"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">90470.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">35.26</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">73330.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">43.5</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</jobgps:hasTotalEmployees>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">39150.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17.95</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">37330.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">18.82</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">80</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -4262,23 +4590,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#petroleum_engineers_Abilene__TX -->
-
-
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#petroleum_engineers_Abilene__TX">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#petroleum_engineers"/>
-        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">126640.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">56.62</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">117780.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60.89</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</jobgps:hasTotalEmployees>
-    </Thing>
-    
-
-
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#pharmacists -->
 
 
@@ -4295,23 +4606,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#pharmacists_Abilene__TX -->
-
-
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#pharmacists_Abilene__TX">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#pharmacists"/>
-        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">102710.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60.97</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">126810.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">49.38</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">220</jobgps:hasTotalEmployees>
-    </Thing>
-    
-
-
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#pharmacy_technicians_Abilene__TX -->
 
 
@@ -4319,12 +4613,31 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#pharmacy_technicians"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">35560.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17.48</jobgps:hasMeanHourlyWage>
         <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">36360.0</jobgps:hasMedianAnnualWage>
         <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17.1</jobgps:hasMedianHourlyWage>
         <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">250</jobgps:hasTotalEmployees>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#phlebotomists_Abilene__TX -->
+
+
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#phlebotomists_Abilene__TX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#phlebotomists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29750.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.92</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28950.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14.3</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -4361,19 +4674,20 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#physical_therapist_assistants_Abilene__TX -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#physical_therapist_aides_Abilene__TX -->
 
 
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#physical_therapist_assistants_Abilene__TX">
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#physical_therapist_aides_Abilene__TX">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#physical_therapist_assistants"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#physical_therapist_aides"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">68890.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34.72</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">72220.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">33.12</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</jobgps:hasTotalEmployees>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">25630.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.96</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22790.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.32</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -4401,6 +4715,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#physical_therapists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">97310.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46.68</jobgps:hasMeanHourlyWage>
@@ -4434,6 +4749,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#physician_assistants"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">117130.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">58.18</jobgps:hasMeanHourlyWage>
@@ -4471,19 +4787,20 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#preschool_teachers__except_special_education_Abilene__TX -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#probation_officers_and_correctional_treatment_specialists_Abilene__TX -->
 
 
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#preschool_teachers__except_special_education_Abilene__TX">
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#probation_officers_and_correctional_treatment_specialists_Abilene__TX">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#preschool_teachers__except_special_education"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#probation_officers_and_correctional_treatment_specialists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34530.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14.16</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29460.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.6</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">210</jobgps:hasTotalEmployees>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">44790.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.56</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46920.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.54</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -4495,6 +4812,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#producers_and_directors"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">53580.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.06</jobgps:hasMeanHourlyWage>
@@ -4512,29 +4830,13 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#project_management_specialists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">77330.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34.15</jobgps:hasMeanHourlyWage>
         <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">71040.0</jobgps:hasMedianAnnualWage>
         <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">37.18</jobgps:hasMedianHourlyWage>
         <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</jobgps:hasTotalEmployees>
-    </Thing>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#property__real_estate__and_community_association_managers_Abilene__TX -->
-
-
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#property__real_estate__and_community_association_managers_Abilene__TX">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#property__real_estate__and_community_association_managers"/>
-        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">54910.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.48</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46760.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">26.4</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -4546,12 +4848,49 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#property_appraisers_and_assessors"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">87670.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29.11</jobgps:hasMeanHourlyWage>
         <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60550.0</jobgps:hasMedianAnnualWage>
         <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">42.15</jobgps:hasMedianHourlyWage>
         <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</jobgps:hasTotalEmployees>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#protective_service_occupations_Abilene__TX -->
+
+
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#protective_service_occupations_Abilene__TX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#protective_service_occupations"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">47520.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.46</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">44630.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.85</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2010</jobgps:hasTotalEmployees>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#public_relations_specialists_Abilene__TX -->
+
+
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#public_relations_specialists_Abilene__TX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#public_relations_specialists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">49870.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.53</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46860.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23.98</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -4579,6 +4918,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#radiologic_technologists_and_technicians"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">57400.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28.42</jobgps:hasMeanHourlyWage>
@@ -4637,23 +4977,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#respiratory_therapists_Abilene__TX -->
-
-
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#respiratory_therapists_Abilene__TX">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#respiratory_therapists"/>
-        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">58400.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28.9</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60110.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28.08</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</jobgps:hasTotalEmployees>
-    </Thing>
-    
-
-
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#sales_engineers -->
 
 
@@ -4677,6 +5000,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#sales_managers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">98110.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">41.75</jobgps:hasMeanHourlyWage>
@@ -4710,6 +5034,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#school_psychologists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">62570.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29.84</jobgps:hasMeanHourlyWage>
@@ -4732,36 +5057,20 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#self_enrichment_teachers_Abilene__TX -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#social_and_community_service_managers_Abilene__TX -->
 
 
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#self_enrichment_teachers_Abilene__TX">
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#social_and_community_service_managers_Abilene__TX">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#self_enrichment_teachers"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#social_and_community_service_managers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">31440.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14.14</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29400.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.12</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</jobgps:hasTotalEmployees>
-    </Thing>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#social_and_human_service_assistants_Abilene__TX -->
-
-
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#social_and_human_service_assistants_Abilene__TX">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#social_and_human_service_assistants"/>
-        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">33720.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14.6</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30360.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.21</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</jobgps:hasTotalEmployees>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">63840.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28.62</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">59530.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30.69</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -4837,6 +5146,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#software_developers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">95400.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">44.19</jobgps:hasMeanHourlyWage>
@@ -4863,6 +5173,30 @@
     
 
 
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#special_education_teachers__all_other_Abilene__TX -->
+
+
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#special_education_teachers__all_other_Abilene__TX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#special_education_teachers__all_other"/>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">52830.0</jobgps:hasMeanAnnualWage>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#special_education_teachers__kindergarten_and_elementary_school_Abilene__TX -->
+
+
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#special_education_teachers__kindergarten_and_elementary_school_Abilene__TX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#special_education_teachers__kindergarten_and_elementary_school"/>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50580.0</jobgps:hasMeanAnnualWage>
+    </Thing>
+    
+
+
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#special_education_teachers__secondary_school_Abilene__TX -->
 
 
@@ -4882,6 +5216,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#speech_language_pathologists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">77750.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">36.01</jobgps:hasMeanHourlyWage>
@@ -4908,19 +5243,20 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#substitute_teachers__short_term_Abilene__TX -->
+    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#substance_abuse__behavioral_disorder__and_mental_health_counselors_Abilene__TX -->
 
 
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#substitute_teachers__short_term_Abilene__TX">
+    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#substance_abuse__behavioral_disorder__and_mental_health_counselors_Abilene__TX">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#substitute_teachers__short_term"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#substance_abuse__behavioral_disorder__and_mental_health_counselors"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34900.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.41</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">25820.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.78</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">290</jobgps:hasTotalEmployees>
+        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">45850.0</jobgps:hasMeanAnnualWage>
+        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.18</jobgps:hasMeanHourlyWage>
+        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">44050.0</jobgps:hasMedianAnnualWage>
+        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.04</jobgps:hasMedianHourlyWage>
+        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</jobgps:hasTotalEmployees>
     </Thing>
     
 
@@ -4948,6 +5284,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#surgical_technologists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">45540.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.42</jobgps:hasMeanHourlyWage>
@@ -4990,23 +5327,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#surveying_and_mapping_technicians_Abilene__TX -->
-
-
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#surveying_and_mapping_technicians_Abilene__TX">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#surveying_and_mapping_technicians"/>
-        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">45810.0</jobgps:hasMeanAnnualWage>
-        <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.93</jobgps:hasMeanHourlyWage>
-        <jobgps:hasMedianAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">43540.0</jobgps:hasMedianAnnualWage>
-        <jobgps:hasMedianHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.03</jobgps:hasMedianHourlyWage>
-        <jobgps:hasTotalEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</jobgps:hasTotalEmployees>
-    </Thing>
-    
-
-
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#surveyors__cartographers__and_photogrammetrists -->
 
 
@@ -5019,18 +5339,6 @@
         <jobgps:hasTotalMenEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30916</jobgps:hasTotalMenEmployees>
         <jobgps:hasTotalWomenEmployees rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7702</jobgps:hasTotalWomenEmployees>
         <jobgps:hasWomenEmployeesPercentage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19.9</jobgps:hasWomenEmployeesPercentage>
-    </Thing>
-    
-
-
-    <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#teaching_assistants__except_postsecondary_Abilene__TX -->
-
-
-    <Thing rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#teaching_assistants__except_postsecondary_Abilene__TX">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#teaching_assistants__except_postsecondary"/>
-        <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">26310.0</jobgps:hasMeanAnnualWage>
     </Thing>
     
 
@@ -5058,6 +5366,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#training_and_development_specialists"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">52010.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.75</jobgps:hasMeanHourlyWage>
@@ -5075,6 +5384,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#transportation__storage__and_distribution_managers"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">94160.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">41.35</jobgps:hasMeanHourlyWage>
@@ -5108,6 +5418,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#veterinarians"/>
+        <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene"/>
         <jobgps:isLocatedIn rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#Abilene__TX"/>
         <jobgps:hasMeanAnnualWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">92310.0</jobgps:hasMeanAnnualWage>
         <jobgps:hasMeanHourlyWage rdf:datatype="http://www.w3.org/2001/XMLSchema#double">45.89</jobgps:hasMeanHourlyWage>

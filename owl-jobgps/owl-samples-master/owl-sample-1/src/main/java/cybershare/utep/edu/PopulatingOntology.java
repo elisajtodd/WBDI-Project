@@ -27,6 +27,7 @@ import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLEquivalentClassesAxiom;
 import org.semanticweb.owlapi.model.OWLIndividual;
+import org.semanticweb.owlapi.model.OWLInverseObjectPropertiesAxiom;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
@@ -35,6 +36,7 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+import org.semanticweb.owlapi.model.OWLSameIndividualAxiom;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import org.semanticweb.owlapi.reasoner.NodeSet;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
@@ -76,6 +78,7 @@ public class PopulatingOntology {
     private static final String HAS_HOURLY_MEDIAN = "hasMedianHourlyWage";
     private static final String HAS_TOTAL_EMPLOYEES = "hasTotalEmployees";
     private static final String IS_LOCATED_IN = "isLocatedIn";
+    private static final String HAS_OCCUPATION = "hasOccupation";
 
     private static final String TOTAL_ESTIMATE = "Total Estimate";
     private static final String MEN_ESTIMATE = "Men Estimate";
@@ -128,8 +131,13 @@ public class PopulatingOntology {
 
             OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory(); // look for reasoner to load
             OWLReasoner reasoner = reasonerFactory.createReasoner(ontology);
-            addEquivalentClass(ontology, manager, dataFactory, reasoner, "SoftwareDeveloperCities", "dbo:Place",
-                    "Software_Developers", "hasOccupation");
+
+            OWLObjectProperty loc = dataFactory.getOWLObjectProperty(IRI.create(BASE + "#" + IS_LOCATED_IN));
+            OWLObjectProperty oc = dataFactory.getOWLObjectProperty(IRI.create(BASE + "#" + HAS_OCCUPATION));
+            OWLInverseObjectPropertiesAxiom hasOcc = dataFactory.getOWLInverseObjectPropertiesAxiom(loc, oc);
+            manager.addAxiom(ontology, hasOcc);
+            addEquivalentClass(ontology, manager, dataFactory, reasoner, "SoftwareDeveloperCities", "City",
+                    "software_developers", "hasOccupation");
 
             System.out.println("Saving Ontology...");
             saveOntology(
@@ -167,6 +175,11 @@ public class PopulatingOntology {
             addObjectPropertyAssertion(ontology, manager, factory, state, city, "hasCity");
             addObjectPropertyAssertion(ontology, manager, factory, city, state, "isPartOf");
 
+            OWLIndividual city_state = factory.getOWLNamedIndividual(IRI.create(BASE + "#" + locationName));
+            OWLIndividual city_name = factory.getOWLNamedIndividual(IRI.create(BASE + "#" + city));
+            OWLSameIndividualAxiom newDefinition = factory.getOWLSameIndividualAxiom(city_state, city_name);
+            manager.addAxiom(ontology, newDefinition);
+
             String occupationName = row.get(columnLocations.get(OCCUPATION_NAME)).toLowerCase().trim().replace(" ",
                     "_");
             addSubClass(ontology, manager, factory, "Occupation", occupationName);
@@ -193,6 +206,7 @@ public class PopulatingOntology {
                     HAS_TOTAL_EMPLOYEES);
 
             addObjectPropertyAssertion(ontology, manager, factory, individualName, locationName, IS_LOCATED_IN);
+
         } catch (Exception e) {
             // skip row
         }
@@ -572,6 +586,7 @@ public class PopulatingOntology {
 
         InferredOntologyGenerator generator = new InferredOntologyGenerator(owlReasoner);
         generator.fillOntology(dataFactory, ontology);
+        reasoner.isConsistent();
         // get instances
         getInstancesOfClass(ontology, manager, owlReasoner, newClass);
     }
