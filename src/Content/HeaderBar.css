@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    gap: 1em;
+    flex-direction: row;
+    justify-items: flex-start;
+    align-items: center;
+    color: #B6DB57;
+    background-color: #005270;
+    padding: 10px;
+    font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.pageLogo {
+    height: 3em;
+}
