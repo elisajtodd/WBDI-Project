@@ -36,7 +36,6 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
-import org.semanticweb.owlapi.model.OWLSameIndividualAxiom;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import org.semanticweb.owlapi.reasoner.NodeSet;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
@@ -71,6 +70,7 @@ public class PopulatingOntology {
     private static final String TOTAL_EMPLOYEES = "TOT_EMP";
     private static final String AREA = "AREA_TITLE";
     private static final String OCCUPATION_NAME = "OCC_TITLE";
+    private static final String LOC_QUO = "LOC_QUOTIENT";
 
     private static final String HAS_ANNUAL_MEAN = "hasMeanAnnualWage";
     private static final String HAS_HOURLY_MEAN = "hasMeanHourlyWage";
@@ -89,6 +89,11 @@ public class PopulatingOntology {
     private static final String HAS_MEN_TOTAL = "hasTotalMenEmployees";
     private static final String HAS_WOMEN_TOTAL = "hasTotalWomenEmployees";
     private static final String HAS_WOMEN_PERCENTAGE = "hasWomenEmployeesPercentage";
+
+    private static final String HAS_INCOME_CLASS = "hasIncomeClass";
+    private static final String LOW_INCOME = "Low Income";
+    private static final String MEDIUM_INCOME = "Medium Income";
+    private static final String HIGH_INCOME = "High Income";
 
     public static void main(String[] args) {
         System.out.println("Running OWL demo");
@@ -111,7 +116,7 @@ public class PopulatingOntology {
 
             System.out.println("Reading workbook...");
             Map<String, Integer> columnLocations = getColumnLocations(sheet);
-            getData(ontology, manager, dataFactory, sheet, columnLocations, true);
+            getData(ontology, manager, dataFactory, sheet, columnLocations, false);
             System.out.println("Finished reading workbook.");
             XSSFWorkbook workbook_2 = new XSSFWorkbook(
                     new File(
@@ -160,7 +165,8 @@ public class PopulatingOntology {
     public static void populateOntology(OWLOntology ontology, OWLOntologyManager manager, OWLDataFactory factory,
             Map<String, Integer> columnLocations, List<String> row) {
         try {
-            if (row.get(columnLocations.get(OCCUPATION_NAME)).isEmpty()) {
+            if (row.get(columnLocations.get(OCCUPATION_NAME)).isEmpty()
+                    || Double.parseDouble(row.get(columnLocations.get(LOC_QUO))) < 2.25) {
                 return;
             }
             String locationName = row.get(columnLocations.get(AREA)).trim().replace(" ", "_").replace(",", "");
@@ -169,16 +175,11 @@ public class PopulatingOntology {
 
             String state = locationName.substring(Math.max(locationName.length() - 2, 0));
             addClassIndividual(ontology, manager, factory, state, "State");
-            String city = locationName.substring(0, locationName.length() - 4);
+            String city = locationName;
             addClassIndividual(ontology, manager, factory, city, "City");
 
             addObjectPropertyAssertion(ontology, manager, factory, state, city, "hasCity");
             addObjectPropertyAssertion(ontology, manager, factory, city, state, "isPartOf");
-
-            OWLIndividual city_state = factory.getOWLNamedIndividual(IRI.create(BASE + "#" + locationName));
-            OWLIndividual city_name = factory.getOWLNamedIndividual(IRI.create(BASE + "#" + city));
-            OWLSameIndividualAxiom newDefinition = factory.getOWLSameIndividualAxiom(city_state, city_name);
-            manager.addAxiom(ontology, newDefinition);
 
             String occupationName = row.get(columnLocations.get(OCCUPATION_NAME)).toLowerCase().trim().replace(" ",
                     "_");
@@ -196,6 +197,7 @@ public class PopulatingOntology {
             double annualMedian = Double.parseDouble(row.get(columnLocations.get(ANNUAL_MEDIAN)));
             addDataPropertyAssertionWithDouble(ontology, manager, factory, individualName, annualMedian,
                     HAS_ANNUAL_MEDIAN);
+            addSalaryRange(ontology, manager, factory, annualMedian, individualName);
 
             double hourlyMedian = Double.parseDouble(row.get(columnLocations.get(HOURLY_MEAN)));
             addDataPropertyAssertionWithDouble(ontology, manager, factory, individualName, hourlyMedian,
@@ -259,7 +261,7 @@ public class PopulatingOntology {
         Iterator<Row> iterator = sheet.iterator();
         iterator.next();
         int i = 0;
-        while (iterator.hasNext() && i != 100) {
+        while (iterator.hasNext() && i != 100000) {
             i++;
             Row row = iterator.next();
             List<String> rowData = new ArrayList<>();
@@ -304,11 +306,14 @@ public class PopulatingOntology {
         Iterator<Row> iterator = sheet.iterator();
         iterator.next();
         int i = 0;
-        while (iterator.hasNext() && i != 100) {
+        while (iterator.hasNext() && i != 100000) {
             Row row = iterator.next();
 
             if (getSubset && Math.random() < 0.25) {
                 continue;
+            }
+            if (i % 100 == 0) {
+                System.out.println(i);
             }
 
             i++;
@@ -498,6 +503,24 @@ public class PopulatingOntology {
 
         OWLAxiom assertion = dataFactory.getOWLDataPropertyAssertionAxiom(dataProperty, individual, literal);
         manager.addAxiom(ontology, assertion);
+    }
+
+    public static void addSalaryRange(OWLOntology ontology, OWLOntologyManager manager, OWLDataFactory dataFactory,
+            double salary, String individualName) {
+        OWLIndividual individual = dataFactory.getOWLNamedIndividual(IRI.create(BASE + "#" + individualName));
+        OWLDataProperty dataProperty = dataFactory.getOWLDataProperty(IRI.create(BASE + "#" + HAS_INCOME_CLASS));
+        if (salary < 45000) {
+            OWLAxiom assertion = dataFactory.getOWLDataPropertyAssertionAxiom(dataProperty, individual, LOW_INCOME);
+            manager.addAxiom(ontology, assertion);
+
+        } else if (salary < 90000) {
+            OWLAxiom assertion = dataFactory.getOWLDataPropertyAssertionAxiom(dataProperty, individual, MEDIUM_INCOME);
+            manager.addAxiom(ontology, assertion);
+
+        } else {
+            OWLAxiom assertion = dataFactory.getOWLDataPropertyAssertionAxiom(dataProperty, individual, HIGH_INCOME);
+            manager.addAxiom(ontology, assertion);
+        }
     }
 
     /**
