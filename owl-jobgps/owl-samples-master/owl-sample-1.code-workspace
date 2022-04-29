@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "owl-sample-1"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "automatic"
+	}
+}
