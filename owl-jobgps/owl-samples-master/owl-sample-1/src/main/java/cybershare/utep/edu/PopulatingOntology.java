@@ -3,6 +3,7 @@ package cybershare.utep.edu;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -40,8 +41,8 @@ import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import org.semanticweb.owlapi.reasoner.NodeSet;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.InferenceType;
-import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
-import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
+// import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
+// import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 import org.semanticweb.owlapi.util.InferredOntologyGenerator;
 
 /**
@@ -94,6 +95,14 @@ public class PopulatingOntology {
     private static final String MEDIUM_INCOME = "Medium Income";
     private static final String HIGH_INCOME = "High Income";
 
+    private static final List<String> valid_occupations = Arrays.asList("aerospace_engineers",
+            "anthropologists_and_archeologists", "astronomers",
+            "bioengineers_and_biomedical_engineers", "chemical_engineers", "chemists", "civil_engineers",
+            "data_scientists", "database_administrators", "database_architects",
+            "electrical_engineers", "industrial_engineers", "mathematicians", "mechanical_engineers",
+            "petroleum_engineers", "pharmacists", "physicians__pathologists",
+            "physicists", "sociologists", "software_developers", "web_developers");
+
     public static void main(String[] args) {
         System.out.println("Running OWL demo");
         System.out.println("Running file from" + System.getProperty("user.dir"));
@@ -106,42 +115,50 @@ public class PopulatingOntology {
             // OWLOntology ontology = manager.createOntology();
             OWLDataFactory dataFactory = manager.getOWLDataFactory();
 
-            // System.out.println("Importing workbook...");
-            // XSSFWorkbook workbook = new XSSFWorkbook(
-            // new File(
-            // "C:/Users/elisa/Documents/GitHub/WBDI-Project/owl-jobgps/owl-samples-master/ontologies/oesm21ma/MSA_M2021_dl.xlsx"));
-            // XSSFSheet sheet = workbook.getSheetAt(0);
-            // System.out.println("Finished importing workbook.");
+            System.out.println("Importing workbook...");
+            XSSFWorkbook workbook = new XSSFWorkbook(
+                    new File(
+                            "C:/Users/elisa/Documents/GitHub/WBDI-Project/owl-jobgps/owl-samples-master/ontologies/oesm21ma/MSA_M2021_dl.xlsx"));
+            XSSFSheet sheet = workbook.getSheetAt(0);
+            System.out.println("Finished importing workbook.");
 
-            // System.out.println("Reading workbook...");
-            // Map<String, Integer> columnLocations = getColumnLocations(sheet);
-            // getData(ontology, manager, dataFactory, sheet, columnLocations, false);
-            // System.out.println("Finished reading workbook.");
+            System.out.println("Reading workbook...");
+            Map<String, Integer> columnLocations = getColumnLocations(sheet);
+            getData(ontology, manager, dataFactory, sheet, columnLocations, false);
+            System.out.println("Finished reading workbook.");
 
             // OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory(); // look
             // for reasoner to load
             // OWLReasoner reasoner = reasonerFactory.createReasoner(ontology);
 
-            // System.gc();
+            // XSSFWorkbook workbook_2 = new XSSFWorkbook(
+            // new File(
+            // "C:/Users/elisa/Documents/GitHub/WBDI-Project/owl-jobgps/owl-samples-master/ontologies/STEMOccupations.xlsx"));
+            // XSSFSheet sheet_2 = workbook_2.getSheetAt(0);
+            // System.out.println("Finished importing workbook_2.");
 
-            XSSFWorkbook workbook_2 = new XSSFWorkbook(
-                    new File(
-                            "C:/Users/elisa/Documents/GitHub/WBDI-Project/owl-jobgps/owl-samples-master/ontologies/STEMOccupations.xlsx"));
-            XSSFSheet sheet_2 = workbook_2.getSheetAt(0);
-            System.out.println("Finished importing workbook_2.");
+            // System.out.println("Reading workbook_2...");
+            // Map<String, Integer> columnLocations_2 = getColumnLocations(sheet_2);
+            // getData(ontology, manager, dataFactory, sheet_2, columnLocations_2);
+            // System.out.println("Finished reading workbook_2.");
+            // System.out.println("Finished populating ontology.");
 
-            System.out.println("Reading workbook_2...");
-            Map<String, Integer> columnLocations_2 = getColumnLocations(sheet_2);
-            getData(ontology, manager, dataFactory, sheet_2, columnLocations_2);
-            System.out.println("Finished reading workbook_2.");
-            System.out.println("Finished populating ontology.");
+            // OWLObjectProperty loc = dataFactory.getOWLObjectProperty(IRI.create(BASE +
+            // "#" + "hasCity"));
+            // OWLObjectProperty oc = dataFactory.getOWLObjectProperty(IRI.create(BASE + "#"
+            // + "isPartOf"));
+            // OWLInverseObjectPropertiesAxiom hasOcc =
+            // dataFactory.getOWLInverseObjectPropertiesAxiom(loc, oc);
+            // manager.addAxiom(ontology, hasOcc);
 
-            OWLObjectProperty loc = dataFactory.getOWLObjectProperty(IRI.create(BASE +
-                    "#" + "hasCity"));
-            OWLObjectProperty oc = dataFactory.getOWLObjectProperty(IRI.create(BASE + "#"
-                    + "isLocatedIn"));
-            OWLInverseObjectPropertiesAxiom hasOcc = dataFactory.getOWLInverseObjectPropertiesAxiom(loc, oc);
-            manager.addAxiom(ontology, hasOcc);
+            // OWLObjectProperty hasOc = dataFactory.getOWLObjectProperty(IRI.create(BASE +
+            // "#" + HAS_OCCUPATION));
+            // OWLObjectProperty isLoc = dataFactory.getOWLObjectProperty(IRI.create(BASE +
+            // "#"
+            // + IS_LOCATED_IN));
+            // OWLInverseObjectPropertiesAxiom occPl =
+            // dataFactory.getOWLInverseObjectPropertiesAxiom(isLoc, hasOc);
+            // manager.addAxiom(ontology, occPl);
 
             // addEquivalentClass(ontology, manager, dataFactory, reasoner,
             // "SoftwareDeveloperCities", "City",
@@ -169,10 +186,18 @@ public class PopulatingOntology {
             Map<String, Integer> columnLocations, List<String> row) {
         try {
             if (row.get(columnLocations.get(OCCUPATION_NAME)).isEmpty()
-                    || Double.parseDouble(row.get(columnLocations.get(LOC_QUO))) < 2.25) {
+                    || Double.parseDouble(row.get(columnLocations.get(LOC_QUO))) < 2.00) {
                 return;
             }
+            String occupationName = row.get(columnLocations.get(OCCUPATION_NAME)).toLowerCase().trim().replace(" ",
+                    "_");
+            if (!valid_occupations.contains(occupationName)) {
+                return;
+            }
+            addSubClass(ontology, manager, factory, "Occupation", occupationName);
+
             String locationName = row.get(columnLocations.get(AREA)).trim().replace(" ", "_").replace(",", "");
+
             addSubClass(ontology, manager, factory, "dbo:Place", "State");
             addSubClass(ontology, manager, factory, "dbo:Place", "City");
 
@@ -182,10 +207,7 @@ public class PopulatingOntology {
             addClassIndividual(ontology, manager, factory, city, "City");
 
             addObjectPropertyAssertion(ontology, manager, factory, state, city, "hasCity");
-            addObjectPropertyAssertion(ontology, manager, factory, city, state, "isPartOf");
 
-            String occupationName = row.get(columnLocations.get(OCCUPATION_NAME)).toLowerCase().trim().replace(" ",
-                    "_");
             addSubClass(ontology, manager, factory, "Occupation", occupationName);
 
             String individualName = occupationName + "_" + locationName;
@@ -226,6 +248,9 @@ public class PopulatingOntology {
             String occupationName = row.get(columnLocations.get(OCC_CATEGORY)).toLowerCase().trim().replace(" ", "_")
                     .replace(",",
                             "");
+            if (!valid_occupations.contains(occupationName)) {
+                return;
+            }
             addSubClass(ontology, manager, factory, "Occupation", occupationName);
 
             addClassIndividual(ontology, manager, factory, occupationName, occupationName);
@@ -320,10 +345,10 @@ public class PopulatingOntology {
             }
 
             i++;
-            if (i < 130000) {
+
+            if (i < 100000) {
                 continue;
             }
-
             List<String> rowData = new ArrayList<>();
             // data.add(rowData);
             for (Cell cell : row) {
