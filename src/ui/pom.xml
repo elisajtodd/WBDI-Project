@@ -63,7 +63,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>cybershare.utep.edu.JobGPSOWL</mainClass>
+              <mainClass>cybershare.utep.edu.MainUI</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>

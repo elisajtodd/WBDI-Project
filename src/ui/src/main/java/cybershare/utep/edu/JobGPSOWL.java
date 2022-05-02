@@ -1,40 +1,23 @@
 package cybershare.utep.edu;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.apache.poi.sl.usermodel.PaintStyle.SolidPaint;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.semanticweb.HermiT.Reasoner;
 import org.semanticweb.HermiT.Configuration;
+import org.semanticweb.HermiT.Reasoner;
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.AxiomType;
-import org.semanticweb.owlapi.model.OWLAxiom;
+import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDataRange;
 import org.semanticweb.owlapi.model.OWLDataSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLDatatype;
-import org.semanticweb.owlapi.model.OWLDataAllValuesFrom;
-import org.semanticweb.owlapi.model.OWLEquivalentClassesAxiom;
 import org.semanticweb.owlapi.model.OWLIndividual;
-import org.semanticweb.owlapi.model.OWLInverseObjectPropertiesAxiom;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectHasValue;
@@ -45,9 +28,9 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
+import org.semanticweb.owlapi.reasoner.InferenceType;
 import org.semanticweb.owlapi.reasoner.NodeSet;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
-import org.semanticweb.owlapi.reasoner.InferenceType;
 // import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 // import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 import org.semanticweb.owlapi.util.InferredOntologyGenerator;
@@ -55,12 +38,10 @@ import org.semanticweb.owlapi.vocab.OWLFacet;
 
 public class JobGPSOWL {
 
-    private static final String MLSchema_IRI = "http://www.w3.org/TR/turtle/";
-    private static final String MLImplementation = "ontologies/TEST.owl";
-    private static final String mlsBase = "http://www.w3.org/ns/mls";
     private static final String BASE = "http://www.semanticweb.org/dopeteam/diclass/jobgps";
-    //private static final String JOB_GPS = "C:/Users/elisa/Documents/GitHub/WBDI-Project/owl-jobgps/owl-samples-master/ontologies/jobgps-from-api.owl";
-    private static final String JOB_GPS = "/Users/erikmacik/Developer/git/WBDI-Project/owl-jobgps/owl-samples-master/ontologies/jobgps-from-api.owl";
+    private static final String JOB_GPS = "C:/Users/elisa/Documents/GitHub/WBDI-Project/owl-jobgps/owl-samples-master/ontologies/jobgps-from-api.owl";
+    // private static final String JOB_GPS =
+    // "/Users/erikmacik/Developer/git/WBDI-Project/owl-jobgps/owl-samples-master/ontologies/jobgps-from-api.owl";
 
     public OWLOntology ontology;
     public OWLDataFactory dataFactory;
