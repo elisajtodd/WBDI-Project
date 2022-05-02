@@ -40,11 +40,11 @@ public class MainUI {
             return;
         }
 
-        OCCUPATIONS = ONTOLOGY.getSubclasses("Occupation").stream().toArray(String[]::new);
-        LOCATIONS = ONTOLOGY.getInstancesOfClass("City").stream().toArray(String[]::new);
+        OCCUPATIONS = ONTOLOGY.getSubclasses("Occupation").stream().map(e -> e.replace("_", " "))
+                .toArray(String[]::new);
+        LOCATIONS = ONTOLOGY.getInstancesOfClass("City").stream().map(e -> e.replace("_", " ")).toArray(String[]::new);
 
         JFrame frame = new JFrame("JobGPS");
-        System.out.println(System.getProperty("user.dir"));
         frame.setIconImage(ImageIO.read(new File("src/main/java/cybershare/utep/edu/jobgps.png")));
 
         LayoutManager layout = new BoxLayout(frame.getContentPane(), BoxLayout.PAGE_AXIS);
@@ -89,7 +89,7 @@ public class MainUI {
         if (results.size() == 0) {
             result.add(new JLabel("No results: missing information from data source"));
         } else {
-            JList<String> list = new JList<>(results.stream().toArray(String[]::new));
+            JList<String> list = new JList<>(results.stream().map(e -> e.replace("_", " ")).toArray(String[]::new));
             result.add(list);
         }
         // result.setVisible(true);
@@ -112,7 +112,8 @@ public class MainUI {
 
         JButton button = new JButton("Answer");
         button.addActionListener(e -> {
-            List<String> result = ONTOLOGY.getComplexQuery("City", options.getSelectedItem().toString(),
+            List<String> result = ONTOLOGY.getComplexQuery("City",
+                    options.getSelectedItem().toString().replace(" ", "_"),
                     "hasOccupation");
             displayQueryResult(result, 1);
         });
@@ -136,7 +137,8 @@ public class MainUI {
 
         JButton button = new JButton("Answer");
         button.addActionListener(e -> {
-            List<String> result = ONTOLOGY.getComplexQuery2("City", options.getSelectedItem().toString(),
+            List<String> result = ONTOLOGY.getComplexQuery2("City",
+                    options.getSelectedItem().toString().replace(" ", "_"),
                     "hasOccupation",
                     "hasIncomeClass", "High Income");
             displayQueryResult(result, 2);
@@ -162,7 +164,8 @@ public class MainUI {
 
         JButton button = new JButton("Answer");
         button.addActionListener(e -> {
-            List<String> result = ONTOLOGY.getComplexQuery3("Occupation", options.getSelectedItem().toString(),
+            List<String> result = ONTOLOGY.getComplexQuery3("Occupation",
+                    options.getSelectedItem().toString().replace(" ", "_"),
                     "isLocatedIn",
                     "hasIncomeClass", "High Income");
             displayQueryResult(result, 3);
@@ -193,10 +196,15 @@ public class MainUI {
 
         JButton button = new JButton("Answer");
         button.addActionListener(e -> {
-            String result = ONTOLOGY.getComplexQuery4("software_developers", "Boulder__CO", "isLocatedIn",
+            String result = ONTOLOGY.getComplexQuery4(options1.getSelectedItem().toString().replace(" ", "_"),
+                    options2.getSelectedItem().toString().replace(" ", "_"), "isLocatedIn",
                     "hasMedianAnnualWage");
             List<String> results = new ArrayList<>();
-            results.add(result);
+            if (result.trim().isEmpty()) {
+                results.add("Median income not available.");
+            } else {
+                results.add(result);
+            }
             displayQueryResult(results, 4);
         });
         panel.add(button);
@@ -221,7 +229,7 @@ public class MainUI {
         JButton button = new JButton("Answer");
         button.addActionListener(e -> {
             List<String> results = ONTOLOGY.getComplexQuery5("Occupation", "isLocatedIn",
-                    options.getSelectedItem().toString());
+                    options.getSelectedItem().toString().replace(" ", "_"));
             displayQueryResult(results, 5);
         });
         panel.add(button);
@@ -250,11 +258,16 @@ public class MainUI {
 
         JButton button = new JButton("Answer");
         button.addActionListener(e -> {
-            String result = ONTOLOGY.getComplexQuery4(options2.getSelectedItem().toString(),
-                    options1.getSelectedItem().toString(), "isLocatedIn",
+            String result = ONTOLOGY.getComplexQuery4(options2.getSelectedItem().toString().replace(" ", "_"),
+                    options1.getSelectedItem().toString().replace(" ", "_"), "isLocatedIn",
                     "hasMeanAnnualWage");
+
             List<String> results = new ArrayList<>();
-            results.add(result);
+            if (result.trim().isEmpty()) {
+                results.add("Average income for this occupation not available for this location.");
+            } else {
+                results.add(result);
+            }
             displayQueryResult(results, 6);
         });
         panel.add(button);
@@ -284,11 +297,15 @@ public class MainUI {
 
         JButton button = new JButton("Answer");
         button.addActionListener(e -> {
-            String totalEmployees = ONTOLOGY.getComplexQuery4(options1.getSelectedItem().toString(),
-                    options2.getSelectedItem().toString(), "isLocatedIn",
+            String totalEmployees = ONTOLOGY.getComplexQuery4(options1.getSelectedItem().toString().replace(" ", "_"),
+                    options2.getSelectedItem().toString().replace(" ", "_"), "isLocatedIn",
                     "hasTotalEmployees");
             List<String> results = new ArrayList<>();
-            results.add(totalEmployees);
+            if (totalEmployees.trim().isEmpty()) {
+                results.add("Total employees for this occupatpion in this location is not available.");
+            } else {
+                results.add(totalEmployees);
+            }
             displayQueryResult(results, 7);
         });
         panel.add(button);
@@ -312,7 +329,8 @@ public class MainUI {
 
         JButton button = new JButton("Answer");
         button.addActionListener(e -> {
-            List<String> results = ONTOLOGY.getComplexQuery3("Occupation", options.getSelectedItem().toString(),
+            List<String> results = ONTOLOGY.getComplexQuery3("Occupation",
+                    options.getSelectedItem().toString().replace(" ", "_"),
                     "isLocatedIn",
                     "hasIncomeClass", "Low Income");
             displayQueryResult(results, 8);
@@ -339,7 +357,7 @@ public class MainUI {
         JButton button = new JButton("Answer");
         button.addActionListener(e -> {
             List<String> results = ONTOLOGY.getStringDataQuery("Occupation", "hasIncomeClass",
-                    options.getSelectedItem().toString());
+                    options.getSelectedItem().toString().replace(" ", "_"));
             displayQueryResult(results, 9);
         });
         panel.add(button);
@@ -363,10 +381,14 @@ public class MainUI {
 
         JButton button = new JButton("Answer");
         button.addActionListener(e -> {
-            String womenPercentage = ONTOLOGY.getComplexQuery10(options.getSelectedItem().toString(),
+            String womenPercentage = ONTOLOGY.getComplexQuery10(options.getSelectedItem().toString().replace(" ", "_"),
                     "hasWomenEmployeesPercentage");
             List<String> results = new ArrayList<>();
-            results.add(womenPercentage);
+            if (womenPercentage.trim().isEmpty()) {
+                results.add("Percentage of women not available for this occupation.");
+            } else {
+                results.add(womenPercentage);
+            }
             displayQueryResult(results, 10);
         });
 
