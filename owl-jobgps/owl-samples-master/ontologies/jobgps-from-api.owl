@@ -126,6 +126,60 @@
     
 
 
+    <!-- http://www.co-ode.org/ontologies/ont.owl#HighPayingOccupation -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#HighPayingOccupation">
+        <equivalentClass>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+                    <Restriction>
+                        <onProperty rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#hasMeanAnnualWage"/>
+                        <someValuesFrom>
+                            <rdfs:Datatype>
+                                <onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">90000.0</xsd:minExclusive>
+                                    </rdf:Description>
+                                </withRestrictions>
+                            </rdfs:Datatype>
+                        </someValuesFrom>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </equivalentClass>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#OccupationWithFemaleRepresentation -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#OccupationWithFemaleRepresentation">
+        <equivalentClass>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#Occupation"/>
+                    <Restriction>
+                        <onProperty rdf:resource="http://www.semanticweb.org/dopeteam/diclass/jobgps#hasWomenEmployeesPercentage"/>
+                        <someValuesFrom>
+                            <rdfs:Datatype>
+                                <onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">45.0</xsd:minExclusive>
+                                    </rdf:Description>
+                                </withRestrictions>
+                            </rdfs:Datatype>
+                        </someValuesFrom>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </equivalentClass>
+    </Class>
+    
+
+
     <!-- http://www.semanticweb.org/dopeteam/diclass/jobgps#City -->
 
     <Class rdf:about="http://www.semanticweb.org/dopeteam/diclass/jobgps#City">
