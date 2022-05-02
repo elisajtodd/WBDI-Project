@@ -627,9 +627,7 @@ public class PopulatingOntology {
         // has property second class :: hasPet some Cat
         OWLObjectSomeValuesFrom havePropertyClass2 = dataFactory.getOWLObjectSomeValuesFrom(hasProperty,
                 classToFind2);
-        OWLLiteral value_2 = dataFactory.getOWLLiteral("hi");
-        // has property second class :: hasIncomeClass value "High Income"
-        OWLDataAllValuesFrom havePropertyClass3 = dataFactory.getOWLDataAllValuesFrom(hasProperty, value_2);
+
         // Person AND hasPet someCat
         OWLClassExpression intersection = dataFactory.getOWLObjectIntersectionOf(classToFind, havePropertyClass2);
 
