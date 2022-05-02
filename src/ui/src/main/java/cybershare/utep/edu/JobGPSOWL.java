@@ -59,7 +59,8 @@ public class JobGPSOWL {
     private static final String MLImplementation = "ontologies/TEST.owl";
     private static final String mlsBase = "http://www.w3.org/ns/mls";
     private static final String BASE = "http://www.semanticweb.org/dopeteam/diclass/jobgps";
-    private static final String JOB_GPS = "C:/Users/elisa/Documents/GitHub/WBDI-Project/owl-jobgps/owl-samples-master/ontologies/jobgps-from-api.owl";
+    //private static final String JOB_GPS = "C:/Users/elisa/Documents/GitHub/WBDI-Project/owl-jobgps/owl-samples-master/ontologies/jobgps-from-api.owl";
+    private static final String JOB_GPS = "/Users/erikmacik/Developer/git/WBDI-Project/owl-jobgps/owl-samples-master/ontologies/jobgps-from-api.owl";
 
     public OWLOntology ontology;
     public OWLDataFactory dataFactory;
