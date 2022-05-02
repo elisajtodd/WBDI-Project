@@ -24,8 +24,10 @@ import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLClassExpression;
+import org.semanticweb.owlapi.model.OWLDataAllValuesFrom;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
+import org.semanticweb.owlapi.model.OWLDataRange;
 import org.semanticweb.owlapi.model.OWLEquivalentClassesAxiom;
 import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLInverseObjectPropertiesAxiom;
@@ -622,11 +624,12 @@ public class PopulatingOntology {
         // make newClass subclass of firstClass :: CatOwner subClass of Person
         OWLSubClassOfAxiom subClass = dataFactory.getOWLSubClassOfAxiom(newClass, classToFind);
         manager.addAxiom(ontology, subClass);
-
         // has property second class :: hasPet some Cat
         OWLObjectSomeValuesFrom havePropertyClass2 = dataFactory.getOWLObjectSomeValuesFrom(hasProperty,
                 classToFind2);
-
+        OWLLiteral value_2 = dataFactory.getOWLLiteral("hi");
+        // has property second class :: hasIncomeClass value "High Income"
+        OWLDataAllValuesFrom havePropertyClass3 = dataFactory.getOWLDataAllValuesFrom(hasProperty, value_2);
         // Person AND hasPet someCat
         OWLClassExpression intersection = dataFactory.getOWLObjectIntersectionOf(classToFind, havePropertyClass2);
 
@@ -644,6 +647,7 @@ public class PopulatingOntology {
         // get instances
         getInstancesOfClass(ontology, manager, owlReasoner, newClass);
     }
+
     // -------------------------------
 
     /**

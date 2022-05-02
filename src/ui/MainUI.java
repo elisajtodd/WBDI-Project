@@ -10,13 +10,13 @@ import javax.swing.WindowConstants;
 import java.awt.*;
 
 public class MainUI {
-    static String[] LOCATIONS = {"El Paso", "Seattle", "Austin", "San Francisco"};
-    static String[] OCCUPATIONS = {"Software Engineer", "Janitor", "CEO"};
-    static String[] INCOME_CLASSES = {"High income", "Medium income", "Low income"};
+    static String[] LOCATIONS = { "El Paso", "Seattle", "Austin", "San Francisco" };
+    static String[] OCCUPATIONS = { "Software Engineer", "Janitor", "CEO" };
+    static String[] INCOME_CLASSES = { "High income", "Medium income", "Low income" };
 
     public static void main(String[] args) {
         JFrame frame = new JFrame();
-        
+
         LayoutManager layout = new BoxLayout(frame.getContentPane(), BoxLayout.PAGE_AXIS);
         frame.setLayout(layout);
 
@@ -40,6 +40,7 @@ public class MainUI {
 
         frame.doLayout();
         frame.setMinimumSize(frame.getPreferredSize());
+        frame.setSize(1000, 500);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -69,7 +70,6 @@ public class MainUI {
             displayQueryResult();
         });
         panel.add(button);
-
         return panel;
     }
 
@@ -79,14 +79,14 @@ public class MainUI {
 
         panel.add(new JLabel("2. "));
         panel.add(new JLabel("What are the highest paying places to move to find occupation "));
-        
+
         JComboBox<String> options = new JComboBox<String>(OCCUPATIONS);
         options.setMaximumSize(options.getPreferredSize());
-        
+
         panel.add(options);
         panel.add(new JLabel(" ?"));
         panel.add(Box.createHorizontalGlue());
-        
+
         JButton button = new JButton("Answer");
         button.addActionListener(e -> {
             displayQueryResult();
@@ -109,7 +109,7 @@ public class MainUI {
 
         panel.add(new JLabel(" ?"));
         panel.add(Box.createHorizontalGlue());
-        
+
         JButton button = new JButton("Answer");
         button.addActionListener(e -> {
             displayQueryResult();
