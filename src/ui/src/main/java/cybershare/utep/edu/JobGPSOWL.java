@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.sl.usermodel.PaintStyle.SolidPaint;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -28,6 +29,7 @@ import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDataRange;
+import org.semanticweb.owlapi.model.OWLDataSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLDatatype;
 import org.semanticweb.owlapi.model.OWLDataAllValuesFrom;
 import org.semanticweb.owlapi.model.OWLEquivalentClassesAxiom;
@@ -35,6 +37,7 @@ import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLInverseObjectPropertiesAxiom;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
+import org.semanticweb.owlapi.model.OWLObjectHasValue;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLOntology;
@@ -86,7 +89,12 @@ public class JobGPSOWL {
      * @param classToFind
      */
     public List<String> getInstancesOfClass(String className) {
+
         OWLClass classToFind = this.manager.getOWLDataFactory().getOWLClass(IRI.create(BASE + "#" + className));
+
+        InferredOntologyGenerator generator = new InferredOntologyGenerator(this.reasoner);
+        generator.fillOntology(this.dataFactory, this.ontology);
+        this.reasoner.isConsistent();
         // get instances
         NodeSet<OWLNamedIndividual> individualsNodeSet = this.reasoner.getInstances(classToFind, true);
         Set<OWLNamedIndividual> individuals = individualsNodeSet.getFlattened();
@@ -98,30 +106,6 @@ public class JobGPSOWL {
             individual_list.add(s.substring(s.indexOf("#") + 1, s.length() - 1));
         }
         return individual_list;
-    }
-
-    /**
-     * Find object
-     * Input = Subject, objectProperty
-     * Output = Object instances
-     * 
-     * @param individual_1
-     * @param property
-     */
-    public List<String> findObject(String individual_1, String property) {
-        OWLNamedIndividual i1 = this.dataFactory.getOWLNamedIndividual(IRI.create(BASE + "#" + individual_1));
-        OWLObjectProperty o1 = this.dataFactory.getOWLObjectProperty(IRI.create(BASE + "#" + property));
-
-        NodeSet<OWLNamedIndividual> petValuesNodeSet = this.reasoner.getObjectPropertyValues(i1, o1);
-        Set<OWLNamedIndividual> values = petValuesNodeSet.getFlattened();
-
-        List<String> value_list = new ArrayList<String>();
-        // display
-        for (OWLNamedIndividual ind : values) {
-            String s = ind.toString();
-            value_list.add(s.substring(s.indexOf("#") + 1, s.length() - 1));
-        }
-        return value_list;
     }
 
     /**
@@ -184,24 +168,26 @@ public class JobGPSOWL {
         OWLObjectProperty hasProperty = this.dataFactory.getOWLObjectProperty(IRI.create(BASE + "#" + property));
         // property2 :: hasIncomeClass
         OWLDataProperty hasProperty2 = this.dataFactory.getOWLDataProperty(IRI.create(BASE + "#" + property2));
-        // has property second class :: hasOccupation some SWE
-        OWLObjectSomeValuesFrom havePropertyClass2 = this.dataFactory.getOWLObjectSomeValuesFrom(hasProperty,
-                classToFind2);
 
         OWLDatatype str_datatype = this.dataFactory.getStringOWLDatatype();
         OWLLiteral val2 = this.dataFactory.getOWLLiteral(value2);
-        OWLFacet facet = OWLFacet.LANG_RANGE;
+        OWLFacet facet = OWLFacet.PATTERN;
         OWLDataRange value_2 = this.dataFactory.getOWLDatatypeRestriction(str_datatype, facet, val2);
 
         // has property second class :: hasIncomeClass value "High Income"
-        OWLDataAllValuesFrom havePropertyClass3 = this.dataFactory.getOWLDataAllValuesFrom(hasProperty2, value_2);
+        OWLDataSomeValuesFrom havePropertyClass2 = this.dataFactory.getOWLDataSomeValuesFrom(hasProperty2, value_2);
 
         // SWE AND hasIncomeClass value "High Income"
         OWLClassExpression intersection1 = this.dataFactory.getOWLObjectIntersectionOf(classToFind2,
-                havePropertyClass3);
+                havePropertyClass2);
 
-        // City AND hasOccupation SWE AND hasIncomeClass value "High Income"
-        OWLClassExpression intersection2 = this.dataFactory.getOWLObjectIntersectionOf(classToFind, intersection1);
+        // has property second class :: hasOccupation some (SWE AND hasIncomeClass value
+        // "High Income")
+        OWLObjectSomeValuesFrom havePropertyClass1 = this.dataFactory.getOWLObjectSomeValuesFrom(hasProperty,
+                intersection1);
+
+        // City AND hasOccupation (SWE AND hasIncomeClass value "High Income")
+        OWLClassExpression intersection2 = this.dataFactory.getOWLObjectIntersectionOf(classToFind, havePropertyClass1);
 
         InferredOntologyGenerator generator = new InferredOntologyGenerator(this.reasoner);
         generator.fillOntology(this.dataFactory, this.ontology);
@@ -209,6 +195,225 @@ public class JobGPSOWL {
 
         // get instances
         NodeSet<OWLNamedIndividual> individualsNodeSet = this.reasoner.getInstances(intersection2, true);
+        Set<OWLNamedIndividual> individuals = individualsNodeSet.getFlattened();
+
+        List<String> individual_list = new ArrayList<String>();
+        // display
+        for (OWLNamedIndividual ind : individuals) {
+            String s = ind.toString();
+            individual_list.add(s.substring(s.indexOf("#") + 1, s.length() - 1));
+        }
+        return individual_list;
+    }
+
+    /**
+     * Complex class 3
+     * Input = subjectClass, property, objectClass, property , value
+     * Output = Individuals
+     * 
+     * @param className1
+     * @param className2
+     * @param dataProperty
+     * @param dataProperty2
+     * @param value2
+     */
+    public List<String> getComplexQuery3(String className, String value1, String dataProperty,
+            String dataProperty2, String value2) {
+        // first class :: Occupation
+        OWLClass classToFind = this.manager.getOWLDataFactory().getOWLClass(IRI.create(BASE + "#" + className));
+        // property :: isLocatedIn
+        OWLObjectProperty hasProperty = this.dataFactory.getOWLObjectProperty(IRI.create(BASE + "#" + dataProperty));
+        // property2 :: hasIncomeClass
+        OWLDataProperty hasProperty2 = this.dataFactory.getOWLDataProperty(IRI.create(BASE + "#" + dataProperty2));
+        // instance Boulder__CO
+        OWLIndividual instance_input = this.dataFactory.getOWLNamedIndividual(IRI.create(BASE + "#" + value1));
+
+        // has property second class :: isLocatedIn value "Boulder__CO"
+        OWLObjectHasValue havePropertyClass1 = this.dataFactory.getOWLObjectHasValue(hasProperty,
+                instance_input);
+
+        OWLDatatype str_datatype = this.dataFactory.getStringOWLDatatype();
+        OWLFacet facet = OWLFacet.PATTERN;
+        OWLLiteral val2 = this.dataFactory.getOWLLiteral(value2);
+        OWLDataRange value_2 = this.dataFactory.getOWLDatatypeRestriction(str_datatype, facet, val2);
+
+        // has property second class :: hasIncomeClass value "High Income"
+        OWLDataSomeValuesFrom havePropertyClass2 = this.dataFactory.getOWLDataSomeValuesFrom(hasProperty2, value_2);
+
+        // Occupation and ... and ...
+        OWLClassExpression intersection1 = this.dataFactory.getOWLObjectIntersectionOf(classToFind, havePropertyClass1,
+                havePropertyClass2);
+
+        InferredOntologyGenerator generator = new InferredOntologyGenerator(this.reasoner);
+        generator.fillOntology(this.dataFactory, this.ontology);
+        this.reasoner.isConsistent();
+
+        // get instances
+        NodeSet<OWLNamedIndividual> individualsNodeSet = this.reasoner.getInstances(intersection1, true);
+        Set<OWLNamedIndividual> individuals = individualsNodeSet.getFlattened();
+
+        List<String> individual_list = new ArrayList<String>();
+        // display
+        for (OWLNamedIndividual ind : individuals) {
+            String s = ind.toString();
+            individual_list.add(s.substring(s.indexOf("#") + 1, s.length() - 1));
+        }
+        return individual_list;
+    }
+
+    /**
+     * Complex class 4
+     * Input = subjectClass, property, objectClass, property , value
+     * Output = Individuals
+     * 
+     * @param className1
+     * @param className2
+     * @param dataProperty
+     * @param dataProperty2
+     */
+    public String getComplexQuery4(String className, String value1, String dataProperty,
+            String dataProperty2) {
+        // first class :: SWE
+        OWLClass classToFind = this.manager.getOWLDataFactory().getOWLClass(IRI.create(BASE + "#" + className));
+        // property :: isLocatedIn
+        OWLObjectProperty hasProperty = this.dataFactory.getOWLObjectProperty(IRI.create(BASE + "#" + dataProperty));
+        // property2 :: hasMedianAnnualWage
+        OWLDataProperty hasProperty2 = this.dataFactory.getOWLDataProperty(IRI.create(BASE + "#" + dataProperty2));
+        // instance Boulder__CO
+        OWLIndividual instance_input = this.dataFactory.getOWLNamedIndividual(IRI.create(BASE + "#" + value1));
+
+        // has property second class :: isLocatedIn value "Boulder__CO"
+        OWLObjectHasValue havePropertyClass1 = this.dataFactory.getOWLObjectHasValue(hasProperty,
+                instance_input);
+
+        // SWE and isLocatedIn Boulder
+        OWLClassExpression intersection1 = this.dataFactory.getOWLObjectIntersectionOf(classToFind, havePropertyClass1);
+
+        InferredOntologyGenerator generator = new InferredOntologyGenerator(this.reasoner);
+        generator.fillOntology(this.dataFactory, this.ontology);
+        this.reasoner.isConsistent();
+
+        // get instances
+        NodeSet<OWLNamedIndividual> individualsNodeSet = this.reasoner.getInstances(intersection1, true);
+        Set<OWLNamedIndividual> individuals = individualsNodeSet.getFlattened();
+
+        String val = "";
+
+        // display
+        for (OWLNamedIndividual ind : individuals) {
+            Set<OWLLiteral> prop = this.reasoner.getDataPropertyValues(ind, hasProperty2);
+            for (OWLLiteral p : prop) {
+                String s = p.toString();
+                val = s.substring(s.indexOf("\"") + 1, s.indexOf("^") - 1);
+            }
+        }
+        return val;
+    }
+
+    /**
+     * Complex class
+     * Input = subjectClass, property, objectClass
+     * Output = Individuals
+     * 
+     * @param className1
+     * @param className2
+     * @param individual
+     */
+    public List<String> getComplexQuery5(String className1, String property, String individual) {
+        // first class :: Occupation
+        OWLClass classToFind = this.manager.getOWLDataFactory().getOWLClass(IRI.create(BASE + "#" + className1));
+        // property :: isLocatedIn
+        OWLObjectProperty hasProperty = this.dataFactory.getOWLObjectProperty(IRI.create(BASE + "#" + property));
+        // instance Boulder__CO
+        OWLIndividual instance_input = this.dataFactory.getOWLNamedIndividual(IRI.create(BASE + "#" + individual));
+
+        // has property second class :: isLocatedIn value "Boulder__CO"
+        OWLObjectHasValue havePropertyClass1 = this.dataFactory.getOWLObjectHasValue(hasProperty,
+                instance_input);
+
+        // Occupation and isLocatedIn Boulder__CO
+        OWLClassExpression intersection = this.dataFactory.getOWLObjectIntersectionOf(classToFind, havePropertyClass1);
+
+        InferredOntologyGenerator generator = new InferredOntologyGenerator(this.reasoner);
+        generator.fillOntology(this.dataFactory, this.ontology);
+        this.reasoner.isConsistent();
+
+        // get instances
+        NodeSet<OWLNamedIndividual> individualsNodeSet = this.reasoner.getInstances(intersection, true);
+        Set<OWLNamedIndividual> individuals = individualsNodeSet.getFlattened();
+
+        List<String> individual_list = new ArrayList<String>();
+        // display
+        for (OWLNamedIndividual ind : individuals) {
+            String s = ind.toString();
+            individual_list.add(s.substring(s.indexOf("#") + 1, s.length() - 1));
+        }
+        return individual_list;
+    }
+
+    /**
+     * Complex class 10
+     * Input = subjectClass, property, objectClass, property , value
+     * Output = Individuals
+     * 
+     * @param className
+     * @param dataProperty
+     */
+    public String getComplexQuery10(String className, String dataProperty) {
+        // property2 :: hasMedianAnnualWage
+        OWLDataProperty hasProperty2 = this.dataFactory.getOWLDataProperty(IRI.create(BASE + "#" + dataProperty));
+        // instance SWE
+        OWLNamedIndividual instance_input = this.dataFactory.getOWLNamedIndividual(IRI.create(BASE + "#" + className));
+
+        InferredOntologyGenerator generator = new InferredOntologyGenerator(this.reasoner);
+        generator.fillOntology(this.dataFactory, this.ontology);
+        this.reasoner.isConsistent();
+
+        String val = "";
+        Set<OWLLiteral> prop = this.reasoner.getDataPropertyValues(instance_input, hasProperty2);
+        for (OWLLiteral p : prop) {
+            String s = p.toString();
+            val = s.substring(s.indexOf("\"") + 1, s.indexOf("^") - 1);
+        }
+        return val;
+    }
+
+    /**
+     * Complex class 2
+     * Input = subjectClass, dataProperty, value
+     * Output = Individuals
+     * 
+     * @param className1
+     * @param className2
+     * @param property
+     * @param property2
+     * @param value2
+     */
+    public List<String> getStringDataQuery(String className1, String dataProperty,
+            String value) {
+        // first class :: Occupation
+        OWLClass classToFind = this.manager.getOWLDataFactory().getOWLClass(IRI.create(BASE + "#" + className1));
+        // property :: hasIncomeClass
+        OWLDataProperty hasProperty = this.dataFactory.getOWLDataProperty(IRI.create(BASE + "#" + dataProperty));
+
+        OWLDatatype str_datatype = this.dataFactory.getStringOWLDatatype();
+        OWLLiteral val2 = this.dataFactory.getOWLLiteral(value);
+        OWLFacet facet = OWLFacet.PATTERN;
+        OWLDataRange value_2 = this.dataFactory.getOWLDatatypeRestriction(str_datatype, facet, val2);
+
+        // has property second class :: hasIncomeClass value "High Income"
+        OWLDataSomeValuesFrom havePropertyClass2 = this.dataFactory.getOWLDataSomeValuesFrom(hasProperty, value_2);
+
+        // Occupation AND hasIncomeClass value "High Income"
+        OWLClassExpression intersection1 = this.dataFactory.getOWLObjectIntersectionOf(classToFind,
+                havePropertyClass2);
+
+        InferredOntologyGenerator generator = new InferredOntologyGenerator(this.reasoner);
+        generator.fillOntology(this.dataFactory, this.ontology);
+        this.reasoner.isConsistent();
+
+        // get instances
+        NodeSet<OWLNamedIndividual> individualsNodeSet = this.reasoner.getInstances(intersection1, true);
         Set<OWLNamedIndividual> individuals = individualsNodeSet.getFlattened();
 
         List<String> individual_list = new ArrayList<String>();
@@ -284,20 +489,77 @@ public class JobGPSOWL {
         try {
             JobGPSOWL myOntology = new JobGPSOWL();
             myOntology.reasoner.isConsistent();
-            myOntology.getSubclasses("Occupation");
+            System.out.println("Occupations: ");
+            List<String> occupations = myOntology.getSubclasses("Occupation");
+            for (String occupation : occupations) {
+                System.out.println(occupation);
+            }
+            System.out.println("Places: ");
+            List<String> places = myOntology.getInstancesOfClass("City");
+            for (String place : places) {
+                System.out.println(place);
+            }
+            System.out.println("Q 1");
             // example question 1
             List<String> swd_cities = myOntology.getComplexQuery("City", "software_developers", "hasOccupation");
             for (String city : swd_cities) {
                 System.out.println(city);
             }
+            System.out.println("Q 2");
             // example question 2
             List<String> swd_cities_high = myOntology.getComplexQuery2("City", "software_developers", "hasOccupation",
                     "hasIncomeClass", "High Income");
             for (String city : swd_cities_high) {
                 System.out.println(city);
             }
+            // example question 3
+            System.out.println("Q 3");
+            List<String> high_occ = myOntology.getComplexQuery3("Occupation", "Boulder__CO", "isLocatedIn",
+                    "hasIncomeClass", "High Income");
+            for (String city : high_occ) {
+                System.out.println(city);
+            }
+            // example question 4
+            System.out.println("Q 4");
+            String medianIncome = myOntology.getComplexQuery4("software_developers", "Boulder__CO", "isLocatedIn",
+                    "hasMedianAnnualWage");
+            System.out.println(medianIncome);
+            // example question 5
+            System.out.println("Q 5");
+            List<String> occ = myOntology.getComplexQuery5("Occupation", "isLocatedIn", "Boulder__CO");
+            for (String o : occ) {
+                System.out.println(o);
+            }
+            // example question 6
+            System.out.println("Q 6");
+            String meanIncome = myOntology.getComplexQuery4("software_developers", "Boulder__CO", "isLocatedIn",
+                    "hasMeanAnnualWage");
+            System.out.println(meanIncome);
+            // example question 7
+            System.out.println("Q 7");
+            String totalEmployees = myOntology.getComplexQuery4("software_developers", "Boulder__CO", "isLocatedIn",
+                    "hasTotalEmployees");
+            System.out.println(totalEmployees);
+            // example question 8
+            System.out.println("Q 8");
+            List<String> low_occ = myOntology.getComplexQuery3("Occupation", "College_Station_Bryan__TX", "isLocatedIn",
+                    "hasIncomeClass", "Low Income");
+            for (String o : low_occ) {
+                System.out.println(o);
+            }
+            // example question 9
+            System.out.println("Q 9");
+            List<String> class_occ = myOntology.getStringDataQuery("Occupation", "hasIncomeClass", "High Income");
+            for (String o : class_occ) {
+                System.out.println(o);
+            }
+            // example question 10
+            System.out.println("Q 10");
+            String womenPercentage = myOntology.getComplexQuery10("software_developers", "hasWomenEmployeesPercentage");
+            System.out.println(womenPercentage);
+        } catch (
 
-        } catch (Exception e) {
+        Exception e) {
             e.printStackTrace();
         }
     }
